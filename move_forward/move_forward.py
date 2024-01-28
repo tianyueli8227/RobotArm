@@ -60,7 +60,7 @@ class LiftEnv(SapienEnv):
         # robot
         loader = self._scene.create_urdf_loader()
         loader.fix_root_link = True
-        robot = loader.load('../assets/robot/panda/panda.urdf')
+        robot = loader.load('panda.urdf')
         robot.set_name('panda')
         robot.set_root_pose(Pose([-0.16 - 0.4, 0, self.table_height]))
         robot.set_qpos(self.init_qpos)
