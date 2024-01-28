@@ -15,7 +15,7 @@ def main():
     actor_builder.add_box_collision(half_size=[0.5, 0.5, 0.5])
     actor_builder.add_box_visual(half_size=[0.5, 0.5, 0.5], color=[1., 0., 0.])
     box = actor_builder.build(name='box')
-    box.set_pose(sapien.Pose(p=[0, 0, 0.5]))  # Position the box higher to let it fall
+    box.set_pose(sapien.Pose(p=[0, 0, 3]))  # Position the box higher to let it fall
 
     scene.set_ambient_light([0.5, 0.5, 0.5])
     scene.add_directional_light([0, 1, -1], [0.5, 0.5, 0.5])
