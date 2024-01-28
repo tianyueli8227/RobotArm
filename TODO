@@ -3,4 +3,5 @@
 - [ ] Try to run the file lift.py, understand if there is any trainning
 - [ ] Next try to run the PPO.ipynb, understand how PPO works
 - [ ] Try to combine both of them, while remember to make the cube location to be a random place? How would the robot try to find it?
-- [ ] 
+- [ ] first train at a single (0,0) cube. If could first partially succeed, then try dynamic box location.
+- [ ]
