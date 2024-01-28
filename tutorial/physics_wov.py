@@ -197,9 +197,8 @@ def main():
     # viewer.window.set_camera_parameters(near=0.05, far=100, fovy=1)
     # camera = scene.add_mounted_camera('camera', box, sapien.Pose(), 800, 600, 0, 1.57, 0.1, 100)
 
-    camera = renderer.create_camera(scene, width=800, height=600, near=0.1, far=100)
-    camera.set_perspective(1.57)  # Set field of view
-    camera.set_pose(sapien.Pose([0, 0, 10], [1, 0, 0, 0]))  # Position the camera
+    camera = scene.add_camera("camera", width=800, height=600, fovy=np.pi/3, near=0.1, far=100)
+    camera.set_local_pose(sapien.Pose([-2, 0, 2.5], [1, 0, 0, 0]))  # Position the camera
 
     steps = 0
     frames = []
