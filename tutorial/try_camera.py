@@ -22,11 +22,11 @@ def main():
     scene.add_directional_light([0, 1, -1], [0.5, 0.5, 0.5])
 
     # Create a camera and add it to the scene
-    camera = scene.add_camera("camera", width=800, height=600, fovx=np.pi ,fovy=np.pi, near=0.1, far=100)
+    camera = scene.add_camera("camera", width=800, height=600, fovx=np.pi/3,fovy=np.pi/3, near=0.1, far=100)
     # pitch = -np.arctan2(2, 4)
     # 将欧拉角转换为四元数（这里假设滚转和偏航都为0）
     # quat = euler2quat(0, pitch, 0)
-    camera.set_local_pose(sapien.Pose([-2.5, 0, 3], [1,0,0,0]))  # Position the camera
+    camera.set_local_pose(sapien.Pose([0, 0, 10], [1,0,0,0]))  # Position the camera
 
     # camera = scene.add_camera("camera", width=800, height=600, fovy=1.57/2, near=0.1, far=100)
     # camera.set_local_pose(sapien.Pose([10, 0, 10], [1, 0, 0, 0]))  # Position the camera
