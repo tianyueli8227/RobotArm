@@ -104,7 +104,8 @@ class LiftEnv(SapienEnv):
         cube_to_ee = ee_pose.p - cube_pose.p
         return np.hstack([qpos, qvel, cube_pose.p, cube_pose.q, cube_to_ee])
 
-    def _get_reward(self):
+    def _get_
+    reward(self):
         # reaching reward
         cube_pose = self.cube.get_pose()
         ee_pose = self.end_effector.get_pose()

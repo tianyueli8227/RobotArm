@@ -49,7 +49,7 @@ class AntEnv(SapienEnv):
                    friction=0.0, damping=1.0, density=20.0):
         builder = scene.create_articulation_builder()
 
-        # torso
+        # torsoget_articulationant
         torso = builder.create_link_builder()
         torso.set_name('torso')
         torso.add_sphere_collision(Pose(), 0.25, density=density)
