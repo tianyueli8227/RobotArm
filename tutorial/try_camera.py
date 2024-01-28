@@ -22,7 +22,7 @@ def main():
 
     # Create a camera and add it to the scene
     camera = scene.add_camera("camera", width=800, height=600, fovy=1.57*2, near=0.1, far=100)
-    camera.set_local_pose(sapien.Pose([0, 0, 10], [1, 0, 0, 0]))  # Position the camera
+    camera.set_local_pose(sapien.Pose([0, 0, 3], [1, 0, 0, 0]))  # Position the camera
 
     # camera = scene.add_camera("camera", width=800, height=600, fovy=1.57/2, near=0.1, far=100)
     # camera.set_local_pose(sapien.Pose([10, 0, 10], [1, 0, 0, 0]))  # Position the camera
