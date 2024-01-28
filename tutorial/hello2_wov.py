@@ -1,11 +1,13 @@
 import sapien.core as sapien
 import numpy as np
 import imageio
+import os
 from transforms3d.euler import euler2quat
 
 def main():
     engine = sapien.Engine()
-    renderer = sapien.SapienRenderer(offscreen_only=True)
+    # renderer = sapien.SapienRenderer(offscreen=True)  # Enable offscreen rendering
+    renderer = sapien.SapienRenderer() 
     engine.set_renderer(renderer)
 
     scene = engine.create_scene()
@@ -16,20 +18,16 @@ def main():
     actor_builder.add_box_collision(half_size=[0.5, 0.5, 0.5])
     actor_builder.add_box_visual(half_size=[0.5, 0.5, 0.5], color=[1., 0., 0.])
     box = actor_builder.build(name='box')
-    box.set_pose(sapien.Pose(p=[0, 0, 3]))  # Position the box higher to let it fall
+    box.set_pose(sapien.Pose(p=[0, 0, 13]))
 
     scene.set_ambient_light([0.5, 0.5, 0.5])
     scene.add_directional_light([0, 1, -1], [0.5, 0.5, 0.5])
 
-    # Create a camera and add it to the scene
-    camera = scene.add_camera("camera", width=800, height=600,fovy=np.pi/3, near=0.1, far=100)
-    # pitch = -np.arctan2(2, 4)
-    # 将欧拉角转换为四元数（这里假设滚转和偏航都为0）
-    # quat = euler2quat(0, pitch, 0)
-    camera.set_local_pose(sapien.Pose([0, 0, 30], [1,0,0,0]))  # Position the camera
-
-    # camera = scene.add_camera("camera", width=800, height=600, fovy=1.57/2, near=0.1, far=100)
-    # camera.set_local_pose(sapien.Pose([10, 0, 10], [1, 0, 0, 0]))  # Position the camera
+    # camera = scene.add_mounted_camera('camera', box, sapien.Pose(), 800, 600, 0, 2.0, 0.1, 100)
+    camera = scene.add_camera("camera", width=800, height=600,fovy=2, near=0.1, far=100)
+    pitch = -np.arctan2(2, 6)
+    quat = euler2quat(0, pitch, 0)
+    camera.set_local_pose(sapien.Pose([-6, -3, 3], quat))  # Position the camera
 
     frames = []
     for i in range(100):  # Capture 100 frames

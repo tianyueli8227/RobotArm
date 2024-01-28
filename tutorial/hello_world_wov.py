@@ -17,12 +17,12 @@ def main():
     actor_builder.add_box_collision(half_size=[0.5, 0.5, 0.5])
     actor_builder.add_box_visual(half_size=[0.5, 0.5, 0.5], color=[1., 0., 0.])
     box = actor_builder.build(name='box')
-    box.set_pose(sapien.Pose(p=[0, 0, 0.5]))
+    box.set_pose(sapien.Pose(p=[0, 0, 1]))
 
     scene.set_ambient_light([0.5, 0.5, 0.5])
     scene.add_directional_light([0, 1, -1], [0.5, 0.5, 0.5])
 
-    camera = scene.add_mounted_camera('camera', box, sapien.Pose(), 800, 600, 0, 1.0, 0.1, 100)
+    camera = scene.add_mounted_camera('camera', box, sapien.Pose(), 800, 600, 0, 2.0, 0.1, 100)
 
     frames = []
     for i in range(100):  # Capture 100 frames
