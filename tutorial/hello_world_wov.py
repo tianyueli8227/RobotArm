@@ -22,7 +22,7 @@ def main():
     scene.set_ambient_light([0.5, 0.5, 0.5])
     scene.add_directional_light([0, 1, -1], [0.5, 0.5, 0.5])
 
-    camera = scene.add_mounted_camera('camera', box, sapien.Pose(), 800, 600, 0, 1.57, 0.1, 100)
+    camera = scene.add_mounted_camera('camera', box, sapien.Pose(), 800, 600, 0, 1.0, 0.1, 100)
 
     frames = []
     for i in range(100):  # Capture 100 frames
